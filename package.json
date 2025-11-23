@@ -38,6 +38,7 @@
     "express": "^5.1.0",
     "express-rate-limit": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
+    "resend": "^6.2.2",
     "moment": "^2.30.1",
     "nodemailer": "^7.0.9",
     "pg": "^8.16.3",
