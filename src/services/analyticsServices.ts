@@ -6,7 +6,7 @@ import type {
   AnalyticsServiceCount,
   GetTotalRevenueByMonthType,
 } from '../validations/analyticsSchema';
-import { Category, PriorityLevel, Bill } from '../../generated/prisma';
+import { Category, PriorityLevel, Bill } from '../../generated/prisma/client';
 import {
   countFieldsHelper,
   serviceDateRangeHelper,

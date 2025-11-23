@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { InvoiceStatus } from '../../generated/prisma';
+import { InvoiceStatus } from '../../generated/prisma/client';
 import { PaginationQuerySchema } from './paginationSchema';
 
 export const GetTenantInvoiceParamSchema = z.object({

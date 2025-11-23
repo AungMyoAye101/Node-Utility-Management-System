@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { ServiceStatus } from '../../generated/prisma';
+import { ServiceStatus } from '../../generated/prisma/client';
 
 export const GetTotalRevenueByMonthSchema = z.object({
   month: z

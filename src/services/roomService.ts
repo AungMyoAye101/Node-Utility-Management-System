@@ -6,7 +6,7 @@ import {
   GetAllRoomsQueryType,
   getRoomCountType,
 } from '../validations/roomSchema';
-import { Prisma } from '../../generated/prisma';
+import { Prisma } from '../../generated/prisma/client';
 import { Request } from 'express';
 import { generatePaginationData } from '../common/utils/paginationHelper';
 

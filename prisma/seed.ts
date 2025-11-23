@@ -1,6 +1,9 @@
+import 'dotenv/config';
+import { Pool } from 'pg';
 import { faker } from '@faker-js/faker';
 import { hashPassword } from '../src/common/auth/password';
-import prisma from '../src/lib/prismaClient';
+import { PrismaClient } from '../generated/prisma/client';
+import { PrismaPg } from '@prisma/adapter-pg';
 import {
   Category,
   InvoiceStatus,
@@ -11,7 +14,11 @@ import {
   UserRole,
   PaymentMethod,
   Prisma,
-} from '../generated/prisma';
+} from '../generated/prisma/client';
+
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const adapter = new PrismaPg(pool);
+const prisma = new PrismaClient({ adapter });
 
 // === Type Definitions ===
 interface RandomDateOptions {

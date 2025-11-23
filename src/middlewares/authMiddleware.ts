@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { UnauthorizedError, ForbiddenError } from '../common/errors';
 import { verifyAccessToken } from '../common/auth/jwt';
-import { UserRole } from '../../generated/prisma';
+import { UserRole } from '../../generated/prisma/client';
 
 export function isAuthenticated(
   req: Request,
