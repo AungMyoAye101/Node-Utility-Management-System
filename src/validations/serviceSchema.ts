@@ -1,6 +1,6 @@
 import * as z from 'zod';
 import { PaginationQuerySchema } from './paginationSchema';
-import { Category, PriorityLevel, ServiceStatus } from '../../generated/prisma';
+import { Category, PriorityLevel, ServiceStatus } from '../../generated/prisma/client';
 
 export const CreateCustomerServiceSchema = z.object({
   description: z

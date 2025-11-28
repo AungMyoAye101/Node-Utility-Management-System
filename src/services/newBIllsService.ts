@@ -19,7 +19,7 @@ import {
   Prisma,
   Room,
   TotalUnits,
-} from '../../generated/prisma';
+} from '../../generated/prisma/client';
 import getTimeLimitQuery from '../common/utils/timeLimitQuery';
 
 // define rate constants (cost per unit)

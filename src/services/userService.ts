@@ -6,7 +6,7 @@ import {
   GetAllUsersQueryType,
   UpdateUserType,
 } from '../validations/userSchema';
-import { Prisma } from '../../generated/prisma';
+import { Prisma } from '../../generated/prisma/client';
 import { generatePaginationData } from '../common/utils/paginationHelper';
 import { Request } from 'express';
 

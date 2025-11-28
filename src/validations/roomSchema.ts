@@ -1,5 +1,5 @@
 import z from 'zod';
-import { RoomStatus } from '../../generated/prisma';
+import { RoomStatus } from '../../generated/prisma/client';
 import { PaginationQuerySchema } from './paginationSchema';
 
 //Add Room ID Schema (for param validation)

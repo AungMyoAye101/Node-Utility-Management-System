@@ -3,7 +3,7 @@ import {
   mailOptionConfig,
   mailSend,
 } from '../common/utils/mail-service/resendMailTransporter';
-import { Prisma } from '../../generated/prisma';
+import { Prisma } from '../../generated/prisma/client';
 import { BadRequestError, NotFoundError } from '../common/errors';
 import { generatePaginationData } from '../common/utils/paginationHelper';
 import prisma from '../lib/prismaClient';

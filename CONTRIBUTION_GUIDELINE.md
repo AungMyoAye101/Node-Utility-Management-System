@@ -52,11 +52,11 @@ We follow the **conventional commit** style for consistency:
 
 ## 📂 Specific File Type Conventions
 
-- **Controllers**: [entity]Controller.ts (e.g., `userController.ts`, `tenantController.ts`, `contractController.ts`)
-- **Services**: [entity]Service.ts (e.g., `userService.ts`, `tenantService.ts`, `contractService.ts`)
-- **Routes**: [entity]Route.ts (e.g., `userRoute.ts`, `tenantRoute.ts`, `contractRoute.ts`)
+- **Controllers**: [entity]Controller.ts (e.g., `userController.ts`, `tenantController.ts`, `analyticsController.ts`, `roomController.ts`, `invoiceController.ts`, `receiptController.ts`, `serviceController.ts`, `contractController.ts`, `newBillsController.ts`, `occupantController.ts`, `totalUnitsController.ts`, `contractTypeController.ts`)
+- **Services**: [entity]Service.ts (e.g., `userService.ts`, `tenantService.ts`, `analyticsService.ts`, `roomService.ts`, `invoiceService.ts`, `receiptService.ts`, `customerService.ts`, `newBillsService.ts`, `occupantService.ts`, `totalUnitsService.ts`, `contractTypeService.ts`)
+- **Routes**: [entity]Route.ts (e.g., `userRoute.ts`, `tenantRoute.ts`, `analyticsRoute.ts`, `roomRoute.ts`, `invoiceRoute.ts`, `receiptRoute.ts`, `serviceRoute.ts`, `contractRoute.ts`, `newBillsRoute.ts`, `occupantRoute.ts`, `totalUnitsRoute.ts`, `contractTypeRoute.ts`)
 - **Middlewares**: [purpose]Middleware.ts (e.g., `validationMiddleware.ts`, `authMiddleware.ts`)
-- **Validations**: [entity]Schema.ts (e.g., `userSchema.ts`, `tenantSchema.ts`, `contractSchema.ts`)
+- **Validations**: [entity]Schema.ts (e.g., `userSchema.ts`, `tenantSchema.ts`, `analyticsSchema.ts`, `roomSchema.ts`, `invoiceSchema.ts`, `receiptSchema.ts`, `serviceSchema.ts`, `contractSchema.ts`, `newBillsSchema.ts`, `occupantSchema.ts`, `totalUnitsSchema.ts`, `contractTypeSchema.ts`)
 - **Types**: [domain].d.ts or [entity]Types.ts (e.g., `express.d.ts`, `userTypes.ts`)
 - **Errors**: [type]Error.ts (e.g., `badRequestError.ts`, `notFoundError.ts`, `forbiddenError.ts`)
 - **Helpers**: [purpose].ts (e.g., `checkDuplicateTenantData.ts`)
@@ -71,9 +71,11 @@ We follow the **conventional commit** style for consistency:
 
 import userRoute from './routes/userRoute';
 import roomRoute from './routes/roomRoute';
+import analyticsRoute from './routes/analyticsRoute';
 
 app.use('/api/v1/users', userRoute);
 app.use('/api/v1/rooms', roomRoute);
+app.use('/api/v1/analytics', analyticsRoute);
 ```
 
 ---

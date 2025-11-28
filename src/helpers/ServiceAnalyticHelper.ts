@@ -1,5 +1,5 @@
 import prisma from '../lib/prismaClient';
-import { PriorityLevel, Prisma, ServiceStatus } from '../../generated/prisma';
+import { PriorityLevel, Prisma, ServiceStatus } from '../../generated/prisma/client';
 import { NotFoundError } from '../common/errors';
 
 export const countFieldsHelper = async (

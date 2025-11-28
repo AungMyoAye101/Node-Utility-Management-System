@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { PaymentMethod } from '../../generated/prisma';
+import { PaymentMethod } from '../../generated/prisma/client';
 import { PaginationQuerySchema } from './paginationSchema';
 
 export const GetReceiptParamSchema = z.object({

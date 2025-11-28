@@ -1,6 +1,6 @@
 import { Request } from 'express';
 import prisma from '../lib/prismaClient';
-import { Prisma } from '../../generated/prisma';
+import { Prisma } from '../../generated/prisma/client';
 import {
   CreateInvoiceType,
   GetInvoiceParamType,

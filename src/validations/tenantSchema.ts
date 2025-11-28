@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { RelationshipToTenant } from '../../generated/prisma';
+import { RelationshipToTenant } from '../../generated/prisma/client';
 import { PaginationQuerySchema } from './paginationSchema';
 
 export const OccupantSchema = z.object({

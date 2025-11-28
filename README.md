@@ -22,6 +22,7 @@ This project is deployed on render. Here you can access the server:
 - **Billing System** - Comprehensive billing including utilities and fees
 - **Customer Service** - Issue tracking and maintenance requests
 - **Invoice & Receipt Generation** - Complete payment workflow
+- **Analytics Dashboard** - Financial and operational insights
 
 ## Tech Stack
 - **Backend**: Node.js + Express.js + TypeScript
@@ -190,88 +191,104 @@ The system uses a comprehensive relational database with the following entities:
 ### ✅ **Implemented Endpoints**
 ```
 # Authentication
-POST /api/v1/auth/login
-POST /api/v1/auth/logout
-POST /api/v1/auth/refresh-token
+POST   /api/v1/auth/login
+POST   /api/v1/auth/logout
+POST   /api/v1/auth/refresh-token
 
-# Users (Admin/Staff only)
+# Users
 GET    /api/v1/users
 GET    /api/v1/users/:userId
 POST   /api/v1/users
 PUT    /api/v1/users/:userId
 DELETE /api/v1/users/:userId
 
-# Rooms (Admin/Staff only)
+# Rooms
 GET    /api/v1/rooms
+GET    /api/v1/rooms/counts
 GET    /api/v1/rooms/:roomId
 POST   /api/v1/rooms
 PUT    /api/v1/rooms/:roomId
-DELETE /api/v1/rooms/:roomId
 
-# Tenants (Admin/Staff only)
+# Tenants
 GET    /api/v1/tenants
+GET    /api/v1/tenants/no-contract
+GET    /api/v1/tenants/active-count
 GET    /api/v1/tenants/:tenantId
 POST   /api/v1/tenants
 PUT    /api/v1/tenants/:tenantId
-GET /api/v1/tenants/:tenantId/receipts (All roles)
+GET    /api/v1/tenants/:tenantId/receipts/latest
+GET    /api/v1/tenants/:tenantId/receipts/history
+GET    /api/v1/tenants/:tenantId/contracts
+GET    /api/v1/tenants/:tenantId/bills/latest
+GET    /api/v1/tenants/:tenantId/bills/history
+GET    /api/v1/tenants/:tenantId/invoices/latest
+GET    /api/v1/tenants/:tenantId/invoices/history
+POST   /api/v1/tenants/:id/customer-services/create
+GET    /api/v1/tenants/:id/customer-services/history
 
-# Occupants (Admin/Staff only)
+# Occupants
 GET    /api/v1/occupants
 GET    /api/v1/occupants/:occupantId
 POST   /api/v1/occupants
 PUT    /api/v1/occupants/:occupantId
+DELETE /api/v1/occupants/:occupantId
+GET    /api/v1/tenants/:tenantId/occupants
 
-# Contract Types (Admin/Staff only)
+# Contract Types
 GET    /api/v1/contract-types
 GET    /api/v1/contract-types/:contractTypeId
 POST   /api/v1/contract-types
 PUT    /api/v1/contract-types/:contractTypeId
 
 # Contracts
-POST   /api/v1/contracts (Admin/Staff)
-GET    /api/v1/contracts (Admin/Staff)
-GET    /api/v1/contracts/show/:contractId (Admin/Staff)
-PUT    /api/v1/contracts/:contractId (Admin/Staff)
-GET    /api/v1/tenants/:tenantId/contracts (All roles)
+POST   /api/v1/contracts
+GET    /api/v1/contracts
+GET    /api/v1/contracts/show/:contractId
+PUT    /api/v1/contracts/:contractId
 
-# Total Units (Admin/Staff only)
+# Total Units
+GET    /api/v1/total-units/summary
 GET    /api/v1/total-units
+GET    /api/v1/total-units/bills/:billId
 GET    /api/v1/total-units/:id
 POST   /api/v1/total-units
 PUT    /api/v1/total-units/:id
-DELETE /api/v1/total-units/:id
 
-# Bills (Admin/Staff only)
+# Bills
+GET    /api/v1/bills/revenue-by-month
+GET    /api/v1/bills/auto-generate
 GET    /api/v1/bills
 GET    /api/v1/bills/:billId
 POST   /api/v1/bills
 PUT    /api/v1/bills/:billId
-GET    /api/v1/bills/auto-generate
-GET    /api/v1/tenants/:tenantId/bills/latest (All roles)
-GET    /api/v1/tenants/:tenantId/bills/history (All roles)
 
 # Invoices
-POST   /api/v1/invoices (Admin/Staff)
-GET    /api/v1/invoices (Admin/Staff)
-GET    /api/v1/invoices/:invoiceId (Admin/Staff)
-PUT    /api/v1/invoices/:invoiceId (Admin/Staff)
-GET    /api/v1/tenants/:tenantId/invoices/latest (All roles)
-GET    /api/v1/tenants/:tenantId/invoices/history (All roles)
+POST   /api/v1/invoices
+GET    /api/v1/invoices
+GET    /api/v1/invoices/:invoiceId
+PUT    /api/v1/invoices/:invoiceId
 
 # Customer Service
-POST /api/v1/tenants/:id/customer-services/create
-GET  /api/v1/tenants/:id/customer-services/history/:status (All roles)
-GET  /api/v1/customer-services/
-GET  /api/v1/customer-services/:id
-PUT  /api/v1/customer-services/:id
-DELETE /api/v1/customer-services/:id (Admin/Staff)
+GET    /api/v1/customer-services/counts
+GET    /api/v1/customer-services
+GET    /api/v1/customer-services/:id
+PUT    /api/v1/customer-services/:id
+DELETE /api/v1/customer-services/:id
 
 # Receipts
-GET  /api/v1/receipts
-GET  /api/v1/receipts/:id
-POST /api/v1/receipts
-PUT  /api/v1/receipts/:id
-POST /api/v1/receipts/send-mail (Admin/Staff)
+GET    /api/v1/receipts
+GET    /api/v1/receipts/invoices/:invoiceId
+GET    /api/v1/receipts/:id
+POST   /api/v1/receipts
+PUT    /api/v1/receipts/:id
+POST   /api/v1/receipts/send-mail
+
+# Analytics
+GET    /api/v1/analytics/bills/amount-by-status
+GET    /api/v1/analytics/bills/revenue-by-month
+GET    /api/v1/analytics/contract-types/tenant-counts
+GET    /api/v1/analytics/rooms/status-counts
+GET    /api/v1/analytics/customer-services-counts
 ```
 
 ## Development Status
@@ -297,6 +314,7 @@ POST /api/v1/receipts/send-mail (Admin/Staff)
 - ✅ Billing system API
 - ✅ Invoice management API
 - ✅ Mail Feature Added
+- ✅ Analytics API
 
 ## Contributing
 Please read [CONTRIBUTION_GUIDELINE.md](./CONTRIBUTION_GUIDELINE.md) for details on our code of conduct and the process for submitting pull requests.
