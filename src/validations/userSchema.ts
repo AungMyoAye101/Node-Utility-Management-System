@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { UserRole } from '../../generated/prisma';
+import { UserRole } from '../../generated/prisma/client';
 import { PaginationQuerySchema } from './paginationSchema';
 
 export const GetUserParamSchema = z.object({

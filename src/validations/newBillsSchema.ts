@@ -1,6 +1,6 @@
 import * as z from 'zod';
 import { PaginationQuerySchema } from './paginationSchema';
-import { InvoiceStatus } from '../../generated/prisma';
+import { InvoiceStatus } from '../../generated/prisma/client';
 
 export const CreateBillSchema = z.object({
   roomId: z.uuid({ version: 'v4' }),

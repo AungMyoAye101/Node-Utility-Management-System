@@ -1,6 +1,6 @@
+import 'dotenv/config';
 import { faker } from '@faker-js/faker';
 import { hashPassword } from '../src/common/auth/password';
-import prisma from '../src/lib/prismaClient';
 import {
   Category,
   InvoiceStatus,
@@ -11,7 +11,8 @@ import {
   UserRole,
   PaymentMethod,
   Prisma,
-} from '../generated/prisma';
+} from '../generated/prisma/client';
+import prisma from '../src/lib/prismaClient';
 
 // === Type Definitions ===
 interface RandomDateOptions {
